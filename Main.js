@@ -367,11 +367,13 @@ function mouseClick(e){
 		bot1.vel(velx, vely);
 		bots.push(bot1);
 	} else {
-		bot1 = new TeamBot(x, y, "white", 5);
-		var velx = Math.floor(Math.random() * 10)-5;
-		var vely = Math.floor(Math.random() * 10)-5;
-		bot1.vel(velx, vely);
-		bots.push(bot1);
+		if(x>screen_width && y>screen_height){
+			bot1 = new TeamBot(x, y, "white", 5);
+			var velx = Math.floor(Math.random() * 10)-5;
+			var vely = Math.floor(Math.random() * 10)-5;
+			bot1.vel(velx, vely);
+			bots.push(bot1);
+		}
 	}
 }
 //function handling Mouse movement.
@@ -424,6 +426,10 @@ function activateFormation(){
 		forMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
 		showFormation = true;
 	}
+}
+
+function clearScreen(){
+	bots = []
 }
 
 //update function running rules.

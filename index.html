@@ -4,11 +4,12 @@
 	<title>Flocking Simulation</title>
 	<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" media="screen and (device-height: 600px)"/>
 </head>
 
 <body style="background-color: black">
-	<div>
-		<div style="width: 1000px;height: 600px;float: left;" onclick="mouseClick(event)">
+	<div style="height: 100vh;width:  100vw;" onclick="mouseClick(event)">
+		<div style="width: 1000px;height: 600px;float: left;">
 			<canvas style="border:2px solid lightgray;" id="myCanvas" width="1000px" height="600px" onmousemove="getPos(event)"></canvas>
 			<p id="detailsInfoBox" style="color:white;padding:0px;margin: 0px;font-size: 10px;"></p>
 			<div style="color:white;width: 50%;margin-left: 35%;">
@@ -25,7 +26,7 @@
 				<li><button id="formationMouse" class="button" onclick="activateFormation()">Formation</button></li>
 				<li><button id="detailsMouse" class="button" onclick="activateDetails()">Show Details</button></li>
 				<li><button id="resizeMouse" class="button" onclick="activateRezise()">Resize Canvas</button></li>
-				<li><button id="resetButton" class="button" onclick="location.reload();">Reset</button></li>
+				<li><button id="resetButton" class="button" onclick="clearScreen();">Reset</button></li>
 			</ul>
 			<p style="text-align: center;">Flocking simulation visualizer. Press anywhere on the screen to create a <b style="color:lightgreen;">bot</b>. Multiple bots will flock to eachother. You can also create <b style="color:red;">Hunters</b> by pressing "Flee Mouse" and clicking on the canvas. Read more about Flocking <a style="color:lightblue;" href="https://en.wikipedia.org/wiki/Flocking_(behavior)" target="_blank">HERE</a>.</p>
 	    </div>
