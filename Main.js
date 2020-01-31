@@ -318,8 +318,8 @@ class TeamBot extends Bot {
 function setup(e){
 	if (e == 1){
 		for (var i = 0; i < 100; i++) {
-			var posx = Math.floor(Math.random() * 1000);
-			var posy = Math.floor(Math.random() * 600);
+			var posx = Math.floor(Math.random() * screen_width);
+			var posy = Math.floor(Math.random() * screen_height);
 			bot1 = new TeamBot(posx, posy, "blue", 2);
 
 			var velx = Math.floor(Math.random() * 10)-5;
@@ -329,8 +329,8 @@ function setup(e){
 		}
 	} else if (e == 2){
 		for (var i = 0; i < 100; i++) {
-			var posx = Math.floor(Math.random() * 1000);
-			var posy = Math.floor(Math.random() * 600);
+			var posx = Math.floor(Math.random() * screen_width);
+			var posy = Math.floor(Math.random() * screen_height);
 			bot1 = new TeamBot(posx, posy, "yellow", 4);
 
 			var velx = Math.floor(Math.random() * 10)-5;
@@ -339,8 +339,8 @@ function setup(e){
 			bots.push(bot1);
 		}
 		for (var i = 0; i < 100; i++) {
-			var posx = Math.floor(Math.random() * 1000);
-			var posy = Math.floor(Math.random() * 600);
+			var posx = Math.floor(Math.random() * screen_width);
+			var posy = Math.floor(Math.random() * screen_height);
 			bot1 = new TeamBot(posx, posy, "green", 1);
 
 			var velx = Math.floor(Math.random() * 10)-5;
@@ -367,7 +367,7 @@ function mouseClick(e){
 		bot1.vel(velx, vely);
 		bots.push(bot1);
 	} else {
-		if(x>screen_width && y>screen_height){
+		if(x<screen_width && y<screen_height){
 			bot1 = new TeamBot(x, y, "white", 5);
 			var velx = Math.floor(Math.random() * 10)-5;
 			var vely = Math.floor(Math.random() * 10)-5;
