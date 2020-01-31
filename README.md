@@ -1,4 +1,4 @@
-# FlockingSimulation
+# Flocking Simulation
  Flocking simulation and visualization.
 
  Basic models of flocking behavior are controlled by three simple rules:
@@ -9,6 +9,9 @@
   /Wikipedia
 
 <a href="https://en.wikipedia.org/wiki/Flocking_(behavior)">Source</a>
+
+Detailed explanation:
+<a href="https://www.red3d.com/cwr/boids/">Click here!</a>
 
 Also added multiple options for testing:
 - Normal mouse click, creates a single white bot, that flocks with other white bots.
