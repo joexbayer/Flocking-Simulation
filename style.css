@@ -1,0 +1,91 @@
+body {
+  background-image: linear-gradient(to right, black, black);
+  color:white;
+}
+.options{
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 4px;
+}
+p{
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+}
+
+h1{
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+}
+ul {
+  height: 400px;
+}
+li {
+  height: 40px;
+}
+
+#resetButton {
+  background-image: linear-gradient(to right, #ffffff, #ff6363);
+}
+
+.button {
+  position:absolute;
+  background-image: linear-gradient(#ebebeb, #ffffff); 
+  font-family: 'Bebas Neue', cursive;
+  border: none;
+  color: black;
+  padding: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: 0.5s;
+  width: 90%;
+  height: 5%;
+}
+.button:hover {
+  background-image: linear-gradient(to right, #ffffff, #00ff51);
+  transition: 0.5s;
+  border: none;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 4px;
+  display: inline-block;
+  font-size: 17px;
+  width: 80%;
+}
+
+}
+
+#arrow {
+    border-right:2px solid white;
+    border-bottom:2px solid white;
+    width:10px;
+    height:10px;
+    transform: rotate(-45deg);
+    margin-top:40px;
+}
+
+
+
+ul li {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li:before{
+   content: '';
+   position: absolute;
+   border-right:2px solid white;
+   border-bottom:2px solid white;
+   width:10px;
+   height:10px;
+   top: calc(50% - 4px);
+   left: -20px;
+   transform: translateY(-50%) rotate(-45deg);
+}

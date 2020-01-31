@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flocking Simulation</title>
+	<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body style="background-color: black">
+	<div>
+		<div style="width: 1000px;height: 600px;float: left;" onclick="mouseClick(event)">
+			<canvas style="border:2px solid lightgray;" id="myCanvas" width="1000px" height="600px" onmousemove="getPos(event)"></canvas>
+			<p id="detailsInfoBox" style="color:white;padding:0px;margin: 0px;font-size: 10px;"></p>
+			<div style="color:white;width: 50%;margin-left: 35%;">
+				<h1 style="margin:0;padding: 0;">Flocking simulation</h1>
+				<p style="margin:0;padding: 0;margin-left: 25%;">Joe Bayer</p>
+			</div>
+		</div>
+		<div class="options" style="float: right;width: 20%;height: 600px;">
+			<ul style="color:white;">
+				<h1 style="color:white;">Options: </h1>
+				<li><button class="button" onclick="setup(1)">One team</button></li>
+				<li><button class="button" onclick="setup(2)">Two teams</button></li>
+				<li><button id="fleem" class="button" onclick="activateFleeMouse()">Flee Mouse</button></li>
+				<li><button id="formationMouse" class="button" onclick="activateFormation()">Formation</button></li>
+				<li><button id="detailsMouse" class="button" onclick="activateDetails()">Show Details</button></li>
+				<li><button id="resizeMouse" class="button" onclick="activateRezise()">Resize Canvas</button></li>
+				<li><button id="resetButton" class="button" onclick="location.reload();">Reset</button></li>
+			</ul>
+			<p style="text-align: center;">Flocking simulation visualizer. Press anywhere on the screen to create a <b style="color:lightgreen;">bot</b>. Multiple bots will flock to eachother. You can also create <b style="color:red;">Hunters</b> by pressing "Flee Mouse" and clicking on the canvas. Read more about Flocking <a style="color:lightblue;" href="https://en.wikipedia.org/wiki/Flocking_(behavior)" target="_blank">HERE</a>.</p>
+	    </div>
+	    <script src="Main.js"></script>
+
+	</div>
+</div>
+</body>
+</html>
