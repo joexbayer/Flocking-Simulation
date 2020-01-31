@@ -1,10 +1,19 @@
-body {
+body::-webkit-scrollbar {
   background-image: linear-gradient(to right, black, black);
+  color:white;
+}
+
+/* Hide scrollbar for IE and Edge */
+body {
+  -ms-overflow-style: none;
   color:white;
 }
 .options{
   font-family: 'Bebas Neue', cursive;
   letter-spacing: 4px;
+}
+canvas {
+  z-index: -1;
 }
 p{
   font-family: 'Bebas Neue', cursive;
