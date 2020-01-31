@@ -1,12 +1,15 @@
 # FlockingSimulation
  Flocking simulation and visualization.
-<Wikipedia>
+ 
+Wikipedia
  Basic models of flocking behavior are controlled by three simple rules:
 
  Separation - avoid crowding neighbours (short range repulsion)
  Alignment - steer towards average heading of neighbours
  Cohesion - steer towards average position of neighbours (long range attraction)
-</Wikipedia>
+/Wikipedia
+
+<a href="https://en.wikipedia.org/wiki/Flocking_(behavior)">Source</a>
 
 Also added multiple options for testing:
 - Normal mouse click, creates a single white bot, that flocks with other white bots.
