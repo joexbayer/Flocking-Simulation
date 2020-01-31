@@ -1,13 +1,12 @@
 # FlockingSimulation
  Flocking simulation and visualization.
- 
-Wikipedia
+
  Basic models of flocking behavior are controlled by three simple rules:
 
- Separation - avoid crowding neighbours (short range repulsion)
- Alignment - steer towards average heading of neighbours
- Cohesion - steer towards average position of neighbours (long range attraction)
-/Wikipedia
+ 1. Separation - avoid crowding neighbours (short range repulsion)
+ 2. Alignment - steer towards average heading of neighbours
+ 3. Cohesion - steer towards average position of neighbours (long range attraction)
+  /Wikipedia
 
 <a href="https://en.wikipedia.org/wiki/Flocking_(behavior)">Source</a>
 
