@@ -10,6 +10,7 @@
 
 <a href="https://en.wikipedia.org/wiki/Flocking_(behavior)">Source</a>
 
+Workind Demo: <a href="https://htmlpreview.github.io/?https://github.com/joexbayer/FlockingSimulation/blob/master/index.html" target="_blank">Click here!</a>
 Detailed explanation:
 <a href="https://www.red3d.com/cwr/boids/">Click here!</a>
 
