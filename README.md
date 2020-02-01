@@ -1,6 +1,7 @@
 # Flocking Simulation
  Flocking simulation and visualization.
-
+Workind Demo: <a href="https://htmlpreview.github.io/?https://github.com/joexbayer/FlockingSimulation/blob/master/index.html" target="_blank">Click here!</a>
+<br>
  Basic models of flocking behavior are controlled by three simple rules:
 
  1. Separation - avoid crowding neighbours (short range repulsion)
@@ -10,8 +11,7 @@
 
 <a href="https://en.wikipedia.org/wiki/Flocking_(behavior)">Source</a>
 
-Workind Demo: <a href="https://htmlpreview.github.io/?https://github.com/joexbayer/FlockingSimulation/blob/master/index.html" target="_blank">Click here!</a>
-<br>Detailed explanation:
+Detailed explanation:
 <a href="https://www.red3d.com/cwr/boids/">Click here!</a>
 
 Also added multiple options for testing:
