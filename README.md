@@ -1,6 +1,8 @@
 # Flocking Simulation
  Flocking simulation and visualization.<br>
-Workind Demo: <a href="https://htmlpreview.github.io/?https://github.com/joexbayer/FlockingSimulation/blob/master/index.html" target="_blank">Click here!</a>
+ 
+Working Demo: <a href="https://htmlpreview.github.io/?https://github.com/joexbayer/FlockingSimulation/blob/master/index.html" target="_blank">Click here!</a>
+
 <br>
  Basic models of flocking behavior are controlled by three simple rules:
 
