@@ -5,6 +5,8 @@ var fleebutton = document.getElementById("fleem");
 var rezMouse = document.getElementById("resizeMouse");
 var detMouse = document.getElementById("detailsMouse");
 var forMouse = document.getElementById("formationMouse");
+canvas.width = document.body.clientWidth*0.80; //document.width is obsolete
+canvas.height = document.body.clientHeight*0.85; //document.height is obsolete
 
 var screen_width = canvas.width;
 var screen_height = canvas.height;
@@ -51,6 +53,61 @@ function setup(e){
 		}
 
 }
+//function handling Mouse movement.
+function getPos(e){
+	if (fleeMouse){
+		x=e.clientX;
+	    y=e.clientY;
+    	for (var p = 0; p < bots.length; p++) {
+    		bots[p].fleeMouse(x, y);
+    	}
+	}
+}
+
+//functions for activating features. DISABLED
+/*function activateResize(){
+	if(resizeMouse){
+		resizeMouse = false;
+		rezMouse.removeAttribute("style");
+	} else {
+		rezMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
+		resizeMouse = true;
+	}
+}*/
+
+function activateDetails(){
+	if(showDetails){
+		showDetails = false;
+		detMouse.removeAttribute("style");
+		infoBox.innerHTML = "";
+	} else {
+		detMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
+		showDetails = true;
+	}
+}
+
+function activateFleeMouse(){
+	if(fleeMouse){
+		fleeMouse = false;
+		fleebutton.removeAttribute("style");
+	} else {
+		fleebutton.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
+		fleeMouse = true;
+	}
+}
+function activateFormation(){
+	if(showFormation){
+		showFormation = false;
+		forMouse.removeAttribute("style");
+	} else {
+		forMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
+		showFormation = true;
+	}
+}
+
+function clearScreen(){
+	bots = [];
+}
 //function handling mouseClick
 function mouseClick(e){
 	x=e.clientX;
@@ -78,64 +135,17 @@ function mouseClick(e){
 		}
 	}
 }
-//function handling Mouse movement.
-function getPos(e){
-	if (fleeMouse){
-		x=e.clientX;
-	    y=e.clientY;
-    	for (var p = 0; p < bots.length; p++) {
-    		bots[p].fleeMouse(x, y);
-    	}
-	}
-}
-
-//functions for activating features.
-function activateRezise(){
-	if(resizeMouse){
-		resizeMouse = false
-		rezMouse.removeAttribute("style");
-	} else {
-		rezMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
-		resizeMouse = true;
-	}
-}
-
-function activateDetails(){
-	if(showDetails){
-		showDetails = false
-		detMouse.removeAttribute("style");
-		infoBox.innerHTML = "";
-	} else {
-		detMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
-		showDetails = true;
-	}
-}
-
-function activateFleeMouse(){
-	if(fleeMouse){
-		fleeMouse = false
-		fleebutton.removeAttribute("style");
-	} else {
-		fleebutton.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
-		fleeMouse = true;
-	}
-}
-function activateFormation(){
-	if(showFormation){
-		showFormation = false
-		forMouse.removeAttribute("style");
-	} else {
-		forMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
-		showFormation = true;
-	}
-}
-
-function clearScreen(){
-	bots = []
-}
 
 //update function running rules.
 setInterval(function update(){
+		if(canvas.width != document.body.clientWidth*0.80 || canvas.height != document.body.clientHeight*0.85){
+		canvas.width = document.body.clientWidth*0.80; //document.width is obsolete
+		canvas.height = document.body.clientHeight*0.85; //document.height is obsolete
+
+		screen_width = canvas.width;
+		screen_height = canvas.height;
+	}
+
 	ctx.fillStyle = "#212121";
 	ctx.fillRect(0, 0, screen_width, screen_height);
 	var totalHunter = 0;
