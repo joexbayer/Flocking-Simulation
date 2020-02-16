@@ -24,5 +24,5 @@ Also added multiple options for testing:
    - Clicking the mouse creates a Hunter, hunting bots and turning them to hunters. (Only active while interactive Mouse.)
 - Formation option, enabling full mesh between bots of the same team.
 - Extra details option, showing stats and vectors.
-- Resize canvas, allows resizing from the main canvas, by clicking with the mouse.
+
 - Reset, resets the website and canvas.
