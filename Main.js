@@ -145,6 +145,9 @@ function clearScreen(){
 	output.innerHTML = "Cohesion: "+(100-slider.value)+"%";
 	output2.innerHTML = "Align: "+(100-slider1.value)+"%";
 	output3.innerHTML = "Seperation: "+(100-slider2.value)+"%";
+	slider1.style.backgroundSize =slider1.value+"% 100%";
+	slider.style.backgroundSize =slider.value+"% 100%";
+	slider2.style.backgroundSize =slider2.value+"% 100%";
 }
 //function handling mouseClick
 function mouseClick(e){
