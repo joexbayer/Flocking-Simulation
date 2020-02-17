@@ -8,16 +8,26 @@
 </head>
 
 <body style="background-color: black">
-	<div style="height: 100vh;width:  100vw;" onclick="mouseClick(event)">
-		<div id="canvas-div" style="width: 80vw;height: 100vh;float: left;">
-			<canvas style="border:2px solid lightgray;" id="myCanvas" width="100vw" height="100vh" onmousemove="getPos(event)"></canvas>
+	<div style="height: 97vh;width:  100vw;">
+		<div id="canvas-div" style="width: 80vw;height: 97vh;float: left;">
+			<canvas onclick="mouseClick(event)" style="border:2px solid lightgray;" id="myCanvas" width="100vw" height="100vh" onmousemove="getPos(event)"></canvas>
 			<p id="detailsInfoBox" style="color:white;padding:0px;margin: 0px;font-size: 10px;"></p>
-			<div style="color:white;width: 50%;margin-left: 35%;">
-				<h1 style="margin:0;padding: 0;">Flocking simulation</h1>
-				<p style="margin:0;padding: 0;margin-left: 25%;">Joe Bayer</p>
+			<div style="color:white;width: 100%;">
+				<div class="slidecontainer">
+					  <input type="range" min="0" max="100" value="90" class="slider" id="myRange">
+					  <p class="slidervalue" id="svalue">Cohesion value: </p>
+					</div>
+					<div class="slidecontainer">
+					  <input type="range" min="1" max="100" value="35" class="slider" id="myRange1">
+					  <p class="slidervalue" id="svalue1">Align value:</p>
+					</div>
+					<div class="slidecontainer">
+					  <input type="range" min="1" max="100" value="25" class="slider" id="myRange2">
+					  <p class="slidervalue" id="svalue2">Seperation value: </p>
+					</div>
 			</div>
 		</div>
-		<div class="options" style="float: right;width: 20%;height: 600px;">
+		<div id="options" class="options" style="float: right;width: 20%;height: 600px;">
 			<ul style="color:white;">
 				<h1 style="color:white;">Options: </h1>
 				<li><button class="button" onclick="setup(1)">One team</button></li>

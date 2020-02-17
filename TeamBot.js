@@ -113,8 +113,17 @@ class TeamBot extends Bot {
 
 	/* Align, get the average velocity vector from bots in the perception radius. Then create acceleration vector from the average one, 1/35
 	*/
-	align(bots, doFormation, ctx){
+	align(bots, doFormation, ctx, cohesionfactor, alignfactor, seperatefactor){
 		//align
+		if(alignfactor == 100){
+			alignfactor = 1000000;
+		}
+		if(seperatefactor == 100){
+			alignfactor = 1000000;
+		}
+		if(cohesionfactor == 300){
+			alignfactor = 1000000;
+		}
 		var Aperception = 60;
 		var align_avg_vector = [0,0];
 		var botxy = [this.position_x, this.position_y];
@@ -195,7 +204,7 @@ class TeamBot extends Bot {
 				this.acc(avg_vector[0], avg_vector[1]);
 			} else {
 				align_avg_vector = [(align_avg_vector[0]/Atotal), (align_avg_vector[1]/Atotal)];
-				this.acc(align_avg_vector[0]/35, align_avg_vector[1]/35);//25
+				this.acc(align_avg_vector[0]/alignfactor, align_avg_vector[1]/alignfactor);//25
 			}
 		}
 		//Flee
@@ -210,7 +219,7 @@ class TeamBot extends Bot {
 				this.acc(sep_avg_vector[0], sep_avg_vector[1]);
 			} else {
 				sep_avg_vector = [(sep_avg_vector[0]/Stotal), (sep_avg_vector[1]/Stotal)];
-				this.acc(sep_avg_vector[0]/25, sep_avg_vector[1]/25);
+				this.acc(sep_avg_vector[0]/seperatefactor, sep_avg_vector[1]/seperatefactor);//25
 			}
 		}
 		//cohesion
@@ -220,7 +229,7 @@ class TeamBot extends Bot {
 				this.acc(coh_avg_vector[0]/10, coh_avg_vector[1]/10);
 			} else {
 				coh_avg_vector = [(coh_avg_vector[0]/Ctotal)-botxy[0], (coh_avg_vector[1]/Ctotal)-botxy[1]];
-				this.acc(coh_avg_vector[0]/180, coh_avg_vector[1]/180);//150
+				this.acc(coh_avg_vector[0]/cohesionfactor, coh_avg_vector[1]/cohesionfactor);//180
 			}
 
 		}

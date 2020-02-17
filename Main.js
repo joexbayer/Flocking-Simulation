@@ -6,7 +6,7 @@ var rezMouse = document.getElementById("resizeMouse");
 var detMouse = document.getElementById("detailsMouse");
 var forMouse = document.getElementById("formationMouse");
 canvas.width = document.body.clientWidth*0.80; //document.width is obsolete
-canvas.height = document.body.clientHeight*0.85; //document.height is obsolete
+canvas.height = document.body.clientHeight*0.90; //document.height is obsolete
 
 var screen_width = canvas.width;
 var screen_height = canvas.height;
@@ -14,7 +14,39 @@ var bots = [];
 var fleeMouse = false;
 var resizeMouse = false;
 var showDetails = false;
-var showFormation = false;
+var showFormation = true;
+forMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
+
+
+//slider handler
+var slider = document.getElementById("myRange");
+var output = document.getElementById("svalue");
+output.innerHTML = "Cohesion: "+(100-slider.value)+"%";
+slider.style.backgroundSize =slider.value+"% 100%";
+
+slider.oninput = function() {
+	output.innerHTML = "Cohesion: "+(100-slider.value)+"%";
+	slider.style.backgroundSize =slider.value+"% 100%";
+}
+var slider1 = document.getElementById("myRange1");
+var output2 = document.getElementById("svalue1");
+output2.innerHTML = "Align: "+(100-slider1.value)+"%"; 
+slider1.style.backgroundSize =slider1.value+"% 100%";
+
+slider1.oninput = function() {
+	output2.innerHTML = "Align: "+(100-slider1.value)+"%";
+	slider1.style.backgroundSize =slider1.value+"% 100%";
+}
+
+var slider2 = document.getElementById("myRange2");
+var output3 = document.getElementById("svalue2");
+output3.innerHTML = "Seperation: "+(100-slider2.value)+"%"; 
+slider2.style.backgroundSize =slider2.value+"% 100%";
+
+slider2.oninput = function() {
+	output3.innerHTML = "Seperation: "+(100-slider2.value)+"%";
+	slider2.style.backgroundSize =slider2.value+"% 100%";
+}
 
 //setup function for teams
 function setup(e){
@@ -107,6 +139,12 @@ function activateFormation(){
 
 function clearScreen(){
 	bots = [];
+	slider.value = 90;
+	slider1.value = 35;
+	slider2.value = 25;
+	output.innerHTML = "Cohesion: "+(100-slider.value)+"%";
+	output2.innerHTML = "Align: "+(100-slider1.value)+"%";
+	output3.innerHTML = "Seperation: "+(100-slider2.value)+"%";
 }
 //function handling mouseClick
 function mouseClick(e){
@@ -136,11 +174,12 @@ function mouseClick(e){
 	}
 }
 
+
 //update function running rules.
 setInterval(function update(){
-		if(canvas.width != document.body.clientWidth*0.80 || canvas.height != document.body.clientHeight*0.85){
+	if(canvas.width != document.body.clientWidth*0.80 || canvas.height != document.body.clientHeight*0.85){
 		canvas.width = document.body.clientWidth*0.80; //document.width is obsolete
-		canvas.height = document.body.clientHeight*0.85; //document.height is obsolete
+		canvas.height = document.body.clientHeight*0.90; //document.height is obsolete
 
 		screen_width = canvas.width;
 		screen_height = canvas.height;
@@ -160,6 +199,6 @@ setInterval(function update(){
 		}
 		bots[p].draw(ctx);
 		bots[p].move(screen_width, screen_height);
-		bots[p].align(bots, showFormation, ctx);
+		bots[p].align(bots, showFormation, ctx, slider.value*2, slider1.value, slider2.value);
 	}
 }, 30);
