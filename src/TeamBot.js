@@ -18,55 +18,30 @@ class TeamBot extends Bot {
 		return this.teamid;
 	}
 
-	draw(ctx){
+	draw(ctx, bodyOptions){
 		//draw bot
-		ctx.fillStyle = this.team;
-		if(this.velx >= 0 && this.vely <= 0) {
-			ctx.beginPath();
-			ctx.strokeStyle = this.team;
-			ctx.moveTo(this.position_x+5, this.position_y+5);
-			ctx.lineTo((this.position_x + this.velx*5), (this.position_y + this.vely*5));
-			ctx.lineTo(this.position_x-5, this.position_y-5);
-			ctx.closePath();
-			ctx.stroke();
-		} else if(this.velx <= 0 && this.vely >= 0) {
-			ctx.beginPath();
-			ctx.strokeStyle = this.team;
-			ctx.moveTo(this.position_x-5, this.position_y-5);
-			ctx.lineTo((this.position_x + this.velx*5), (this.position_y + this.vely*5));
-			ctx.lineTo(this.position_x+5, this.position_y+5);
-			ctx.closePath();
-			ctx.stroke();
-		} else if(this.velx <= 0 && this.vely <= 0) {
-			ctx.beginPath();
-			ctx.strokeStyle = this.team;
-			ctx.moveTo(this.position_x+5, this.position_y-5);
-			ctx.lineTo((this.position_x + this.velx*5), (this.position_y + this.vely*5));
-			ctx.lineTo(this.position_x-5, this.position_y+5);
-			ctx.closePath();
-			ctx.stroke();
-		} else if(this.velx <= 0 && this.vely >= 0) {
-			ctx.beginPath();
-			ctx.strokeStyle = this.team;
-			ctx.moveTo(this.position_x+5, this.position_y-5);
-			ctx.lineTo((this.position_x + this.velx*5), (this.position_y + this.vely*5));
-			ctx.lineTo(this.position_x-5, this.position_y+5);
-			ctx.closePath();
-			ctx.stroke();
-		} else if(this.velx >= 0 && this.vely >= 0) {
-			ctx.beginPath();
-			ctx.strokeStyle = this.team;
-			ctx.moveTo(this.position_x+5, this.position_y-5);
-			ctx.lineTo((this.position_x + this.velx*5), (this.position_y + this.vely*5));
-			ctx.lineTo(this.position_x-5, this.position_y+5);
-			ctx.closePath();
-			ctx.stroke();
-		}
-		ctx.fill();
+		ctx.save();
+		ctx.translate(this.position_x, this.position_y);
+		var angle = -90+Math.atan2(this.vely, this.velx) * 180 / Math.PI;
+		ctx.rotate(angle*Math.PI/180);
 		ctx.beginPath();
+		ctx.strokeStyle = this.team;
 		ctx.fillStyle = this.team;
-		ctx.arc(this.position_x, this.position_y, 7, 0, 2*Math.PI);
-		ctx.fill();
+	    ctx.moveTo(0,0);
+	    ctx.lineTo(-7, 0);
+	    ctx.lineTo(0, 20);
+	    ctx.lineTo(7, 0); 
+	   	ctx.fill(); 
+		ctx.closePath();
+		ctx.stroke();
+	    ctx.restore();
+
+	    if(!bodyOptions){
+	    	ctx.beginPath();
+			ctx.fillStyle = this.team;
+			ctx.arc(this.position_x, this.position_y, 7, 0, 2*Math.PI);
+			ctx.fill();
+	    }
 	}
 	//draw vectors !Not acctual vectors
 	drawDetails(ctx){
@@ -158,7 +133,6 @@ class TeamBot extends Bot {
 				//flee
 				if((this.teamid == 3 && bots[p].getTeamID() != 3) && distance < 15){
 						bots[p].changeTeam(this.teamid, this.team);
-						console.log("test");
 						return;
 					}
 				if((this.teamid != bots[p].getTeamID()) && (distance < Fperception) && this.teamid != 3){
@@ -188,8 +162,12 @@ class TeamBot extends Bot {
 				//formation
 				if(doFormation){
 					if((this.teamid == bots[p].getTeamID()) && (distance < Cperception)){
+						if(this.team == "red"){
+							ctx.strokeStyle = "black";
+						} else {
+							ctx.strokeStyle = "light"+this.team;
+						}
 						ctx.beginPath();
-						ctx.strokeStyle = "light"+this.team;
 						ctx.moveTo(this.position_x, this.position_y);
 						ctx.lineTo((next_botxy[0]), (next_botxy[1]));
 						ctx.stroke();

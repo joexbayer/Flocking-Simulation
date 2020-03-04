@@ -14,8 +14,7 @@ var bots = [];
 var fleeMouse = false;
 var resizeMouse = false;
 var showDetails = false;
-var showFormation = true;
-forMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
+var showFormation = false;
 
 
 //slider handler
@@ -96,8 +95,7 @@ function getPos(e){
 	}
 }
 
-//functions for activating features. DISABLED
-/*function activateResize(){
+function activateResize(){
 	if(resizeMouse){
 		resizeMouse = false;
 		rezMouse.removeAttribute("style");
@@ -105,7 +103,7 @@ function getPos(e){
 		rezMouse.setAttribute("style", "background-image: linear-gradient(to right, #ffffff, red);");
 		resizeMouse = true;
 	}
-}*/
+}
 
 function activateDetails(){
 	if(showDetails){
@@ -153,12 +151,7 @@ function clearScreen(){
 function mouseClick(e){
 	x=e.clientX;
 	y=e.clientY;
-	if(resizeMouse){
-		canvas.width = x;
-		canvas.height = y;
-		screen_width = x;
-		screen_height = y;
-	} else if(fleeMouse) {
+	if(fleeMouse) {
 		if(x<screen_width && y<screen_height){
 			bot1 = new TeamBot(x, y, "red", 3);
 			var velx = Math.floor(Math.random() * 10)-5;
@@ -200,7 +193,7 @@ setInterval(function update(){
 			infoBox.innerHTML = " Details: Bots = "+bots.length+". Hunters = "+totalHunter+". Frames: 33,3. Yellow Vector: Velocity. Red Vector: Acceleration";
 			bots[p].drawDetails(ctx);
 		}
-		bots[p].draw(ctx);
+		bots[p].draw(ctx, resizeMouse);
 		bots[p].move(screen_width, screen_height);
 		bots[p].align(bots, showFormation, ctx, slider.value*2, slider1.value, slider2.value);
 	}
