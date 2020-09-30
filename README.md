@@ -29,8 +29,8 @@ Also added multiple options for testing:
 - Extra details option, showing stats and vectors.
 
 - Reset, resets the website and canvas.
+![alt text](https://github.com/joexbayer/Flocking-Simulation/blob/master/pictures/4.png?raw=true)
 
 ![alt text](https://github.com/joexbayer/Flocking-Simulation/blob/master/pictures/2.png?raw=true)
 
 ![alt text](https://github.com/joexbayer/Flocking-Simulation/blob/master/pictures/3.png?raw=true)
-![alt text](https://github.com/joexbayer/Flocking-Simulation/blob/master/pictures/4.png?raw=true)
